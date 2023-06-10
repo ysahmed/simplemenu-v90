@@ -560,6 +560,11 @@ void drawBigWhiteText(char *text) {
 	drawTextOnScreen(BIGFont, NULL, SCREEN_WIDTH/2, SCREEN_HEIGHT/2, text, white, VAlignMiddle | HAlignCenter);
 }
 
+void drawBatteryCriticalText(char *text) {
+	int black[3] = {0, 0, 0};
+	drawTextOnScreen(BIGFont, NULL, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, text, black, VAlignMiddle | HAlignCenter);
+}
+
 void drawLoadingText() {
 	int white[3]={255, 255, 255};
 	drawTextOnScreen(settingsFooterFont, NULL, SCREEN_WIDTH-calculateProportionalSizeOrDistance(44), SCREEN_HEIGHT-calculateProportionalSizeOrDistance(8), "LOADING...", white, VAlignMiddle | HAlignCenter);

@@ -283,7 +283,8 @@ int main() {
 		currentState=SHUTTING_DOWN;
 		updateScreen(CURRENT_SECTION.currentGameNode);
 		refreshScreen();
-		sleep(1);
+		if (isBatteryCritical) sleep(8);
+		else sleep(1);
 	}
 	quit();
 }

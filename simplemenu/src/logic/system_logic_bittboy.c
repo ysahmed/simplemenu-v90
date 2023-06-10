@@ -3,9 +3,13 @@
 #include <sys/mman.h>
 #include <SDL/SDL_timer.h>
 #include <unistd.h>
+#include <math.h>
 
 #include "../headers/globals.h"
 #include "../headers/system_logic.h"
+
+#define BAT_CRITICAL 3420
+#define MIN_VOLTAGE 3330
 
 volatile uint32_t *memregs;
 
@@ -385,23 +389,22 @@ void cycleFrequencies() {
 }
 
 int getBatteryLevel() {
-	int max_voltage = 4050;
-	int min_voltage = 3480;
 	int voltage_now;
-	int total;
 	FILE *f = fopen("/sys/class/power_supply/miyoo-battery/voltage_now", "r");
 	fscanf(f, "%i", &voltage_now);
 	fclose(f);
-
-//	total = (voltage_now - min_voltage) * 6 / (max_voltage - min_voltage);
-	if (voltage_now > 4050) return 6;
-	if (voltage_now > 4000) return 5;
-	if (voltage_now > 3900) return 4;
-	if (voltage_now > 3800) return 3;
-	if (voltage_now > 3700) return 2;
-	if (voltage_now > 3520) return 1;
-//	if (total>5) {
-//		return 5;
-//	}
-//	return total;
+	
+	if (voltage_now>BAT_CRITICAL) {
+		// return ceilf((voltage_now - MIN_VOLTAGE)/180.00);
+		return floorf((voltage_now - MIN_VOLTAGE) / 180.00) +1;
+	}
+	else 
+	{
+		// Battery critical. Shutdown...
+		// execlp("sh", "sh", "-c", "sync && poweroff", NULL);
+		(shutDownEnabled) ? (selectedShutDownOption = 0) : (selectedShutDownOption = 2);
+		running = 0;
+		isBatteryCritical = 1;
+		return 1;
+	}
 }

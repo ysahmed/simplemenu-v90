@@ -36,6 +36,7 @@ int activeGroup;
 int beforeTryingToSwitchGroup;
 int chosenSetting;
 int chosenChoosingOption;
+short isBatteryCritical=0;
 char currentGameNameBeingDisplayed [3000];
 SDL_TimerID shutdownTimer;
 SDL_TimerID timeoutTimer;
