@@ -547,10 +547,15 @@ void drawTimedShutDownScreen() {
 
 void drawShutDownScreen() {
 	int black[] = {0,0,0};
-	drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, black);
+	int red[] = {255, 0, 0};
 	if (selectedShutDownOption==1) {
+		drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, black);
 		drawBigWhiteText("REBOOTING");
-	} else {
+	} else if (isBatteryCritical){
+		drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, red);
+		drawBatteryCriticalText("BATTERY Empty!!");
+	}else {
+		drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, black);
 		drawBigWhiteText("SHUTTING DOWN");
 	}
 }

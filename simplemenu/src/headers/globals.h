@@ -52,6 +52,7 @@ extern int activeGroup;
 extern int beforeTryingToSwitchGroup;
 extern int chosenSetting;
 extern int chosenChoosingOption;
+extern short isBatteryCritical;
 extern char currentGameNameBeingDisplayed [3000];
 extern SDL_TimerID timeoutTimer;
 extern SDL_TimerID shutdownTimer;

@@ -9,7 +9,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdio.h>
-#include </home/bittboy/git/libopk/opk.h>
+// #include </home/bittboy/git/libopk/opk.h>
 
 #include <sys/ioctl.h>
 #if defined(TARGET_NPG) || defined(TARGET_OD) || defined TARGET_OD_BETA
