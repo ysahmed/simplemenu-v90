@@ -145,6 +145,7 @@ int artY;
 int artTextDistanceFromPicture;
 int artTextLineSeparation;
 int artTextFontSize;
+char noArtPicture[1000];
 int systemWidth;
 int systemHeight;
 int systemX;

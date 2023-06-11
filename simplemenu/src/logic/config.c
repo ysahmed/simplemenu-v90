@@ -307,7 +307,7 @@ void setThemeResourceValueInSection(ini_t *config, char *sectionName, char *valu
 }
 
 
-void loadTheme(char *theme) {
+void loadTheme(char *theme) {	
 	strcpy(pathToThemeConfigFilePlusFileName,theme);
 	char *romPath = getRomPath(theme);
 	char *temp = malloc(3000);
@@ -478,7 +478,7 @@ void loadTheme(char *theme) {
 			setThemeResourceValueInSection (themeConfig, "GENERAL", "batt_charging", battCharging);
 		}
 
-		setThemeResourceValueInSection (themeConfig, "GENERAL", "game_count_font", gameCountFont);
+		setThemeResourceValueInSection(themeConfig, "GENERAL", "game_count_font", gameCountFont);
 
 		value = ini_get(themeConfig, "GENERAL", "display_game_count");
 		displayGameCount=0;
@@ -551,6 +551,7 @@ void loadTheme(char *theme) {
 		initializeSettingsFonts();
 		initializeFonts();
 	}
+	setThemeResourceValueInSection(themeConfig, "DEFAULT", "no_art_picture", noArtPicture);
 	ini_free(themeConfig);
 }
 
