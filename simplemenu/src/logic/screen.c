@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include <ctype.h>
+#include <unistd.h>
 
 #include "../headers/constants.h"
 #include "../headers/definitions.h"
@@ -478,8 +479,11 @@ void displayGamePictureInMenu(struct Rom *rom) {
 
 	strcat(pictureWithFullPath,tempGameName);
 	strcat(pictureWithFullPath,".png");
-	displayImageOnScreenCustom(pictureWithFullPath);
-
+	if (access(pictureWithFullPath, F_OK) == 0) {
+		displayImageOnScreenCustom(pictureWithFullPath);
+	} else {
+		displayImageOnScreenCustom(noArtPicture);
+	}
 	free(pictureWithFullPath);
 	free(tempGameName);
 	logMessage("INFO","displayGamePictureInMenu","Displayed game picture");

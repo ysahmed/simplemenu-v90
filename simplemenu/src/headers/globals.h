@@ -137,6 +137,7 @@ extern char batt3[1000];
 extern char batt4[1000];
 extern char batt5[1000];
 extern char battCharging[1000];
+extern char noArtPicture[1000];
 extern int battX;
 extern int battY;
 extern int text1FontSize;
