@@ -283,8 +283,11 @@ int main() {
 		currentState=SHUTTING_DOWN;
 		updateScreen(CURRENT_SECTION.currentGameNode);
 		refreshScreen();
+#ifdef TARGET_BITTBOY
 		if (isBatteryCritical) sleep(8);
-		else sleep(1);
+		else 
+#endif
+		sleep(1);
 	}
 	quit();
 }
