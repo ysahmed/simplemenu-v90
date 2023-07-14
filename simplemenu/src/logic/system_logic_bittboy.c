@@ -8,8 +8,7 @@
 #include "../headers/globals.h"
 #include "../headers/system_logic.h"
 
-#define BAT_CRITICAL 3420
-#define MIN_VOLTAGE 3330
+#define BAT_CRITICAL 3330
 
 volatile uint32_t *memregs;
 
@@ -396,7 +395,7 @@ int getBatteryLevel() {
 	
 	if (voltage_now>BAT_CRITICAL) {
 		// return ceilf((voltage_now - MIN_VOLTAGE)/180.00);
-		return floorf((voltage_now - MIN_VOLTAGE) / 180.00) +1;
+		return floorf((voltage_now - BAT_CRITICAL) / 180.00) +1;
 	}
 	else 
 	{

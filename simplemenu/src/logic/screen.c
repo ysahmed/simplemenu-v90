@@ -557,7 +557,7 @@ void drawShutDownScreen() {
 		drawBigWhiteText("REBOOTING");
 	} else if (isBatteryCritical){
 		drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, red);
-		drawBatteryCriticalText("BATTERY Empty!!");
+		drawBatteryCriticalText("BATTERY EMPTY!!");
 	}else {
 		drawRectangleToScreen(SCREEN_WIDTH, SCREEN_HEIGHT, 0, 0, black);
 		drawBigWhiteText("SHUTTING DOWN");
