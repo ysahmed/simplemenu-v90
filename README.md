@@ -1,3 +1,7 @@
+# About
+
+This repository contains some fixes and features specific to bittboy and bittboy like devices that may or may not be available on the original repository.
+
 # SimpleMenu
 - <span style="color:red">**S**</span>impleMenu
 - <span style="color:red">**I**</span>s (a)
